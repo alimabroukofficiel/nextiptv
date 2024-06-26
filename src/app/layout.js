@@ -2,7 +2,7 @@ import "./globals.css";
 import Header from './components/Header'
 import Footer from './components/Footer'
 export const viewport = {
-  themeColor : "0f0f0f",
+  themeColor : "#0f0f0f",
 }
 export const metadata = {
   title: "Iptvego",

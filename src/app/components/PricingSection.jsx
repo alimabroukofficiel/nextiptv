@@ -6,6 +6,7 @@ import icon__check from '../assets/icons/check.svg'
 import googlePay from '../assets/icons/google-pay.svg'
 import applePay from '../assets/icons/apple-pay.svg'
 import Link from 'next/link'
+
 import BtnPricing from './BtnPricing'
 export default function PricingSrction() {
   return (
