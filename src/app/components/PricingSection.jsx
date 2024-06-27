@@ -1,12 +1,9 @@
-import React from 'react'
 import Image from 'next/image'
 import icon__visa from '../assets/icons/visa.svg'
 import icon__mastter from '../assets/icons/matster.svg'
 import icon__check from '../assets/icons/check.svg'
 import googlePay from '../assets/icons/google-pay.svg'
 import applePay from '../assets/icons/apple-pay.svg'
-import Link from 'next/link'
-
 import BtnPricing from './BtnPricing'
 export default function PricingSrction() {
   return (
