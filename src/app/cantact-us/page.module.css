@@ -12,12 +12,7 @@
     padding: 2REM 1REM;
     margin-top: 1.5REM;
 }
-@media screen and (max-width:767PX) {
-    .cantact__form{
-        border: none;
-        padding: 0REM 0REM;
-    }
-}
+
 .cantact__form .u__input{
     width: 100%;height: auto;
     position: relative;
@@ -34,6 +29,16 @@
     width: 100%;display: grid;
     gap: var(--row-gap-10);
     grid-template-columns: 1FR 1FR;
+}
+
+@media screen and (max-width:767PX) {
+    .cantact__form{
+        border: none;
+        padding: 0REM 0REM;
+    }
+    .grid__inputs{
+        display: block;
+    }
 }
 .cantact__form .u__input input{
     width: 100%;height: auto;
