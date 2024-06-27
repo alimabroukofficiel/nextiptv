@@ -1,9 +1,9 @@
 import styles from './page.module.css'
-import Cantact from '../components/Cantact'
+import Contact from '../components/Contact'
 export default function page() {
   return (
     <section className={styles.cantcat__container}>
-        <Cantact></Cantact>
+        <Contact></Contact>
     </section>
   )
 }

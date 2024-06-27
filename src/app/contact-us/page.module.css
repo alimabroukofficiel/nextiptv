@@ -1,0 +1,21 @@
+
+.cantcat__container{
+    width: 100%;min-height: 100VH;
+    position: relative;
+}
+
+
+.btn{
+    background-color: #1c5b4f;
+    width: 100%;padding: .8REM;
+    color: #fff;border-radius: 20PX;
+    margin-bottom: 1REM;
+    display: flex;align-items: center;
+    max-width: 600PX;margin: 0% auto;
+    cursor: pointer;
+    margin-top: 1.4REM;
+}
+.btn span{
+    text-align: center;
+    width: calc(100% - 50PX);
+}

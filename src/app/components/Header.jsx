@@ -5,12 +5,13 @@ import iconButtom from '../assets/icons/bottom.svg'
 import Link from 'next/link';
 export default function Header() {
     const [isClicked, setIsClicked] = useState(false);
+    const [menu , setMenu] = useState('الرئيسية')
     const handleClick = () => {
+        
       setIsClicked(!isClicked);   
      };
      const hiddenMeny = ()=>{
-        const nav__menu = document.querySelector('.nav__menu')
-        nav__menu.classList.remove('active')
+        setIsClicked(!isClicked);   
         document.body.style.overflow = "auto";
      }
     const [lang, setlang] = useState(false);
@@ -18,13 +19,13 @@ export default function Header() {
         e.preventDefault()
         setlang(!lang);
     };
-    useEffect(() => {
-        if (isClicked) {
-            document.body.style.overflow = "hidden";
-        } else {
-            document.body.style.overflow = "auto";
-        }
-    }, [isClicked]);
+    // useEffect(() => {
+    //     if (isClicked) {
+    //         document.body.style.overflow = "hidden";
+    //     } else {
+    //         document.body.style.overflow = "auto";
+    //     }
+    // }, [isClicked]);
   return (
 <header className={`${isClicked ? 'active' : ''}`}>
             <div className="left__sec">
@@ -36,12 +37,12 @@ export default function Header() {
             <div className="right__sec">
                 <div className="nav__menu">
                     <ul className="nav__list">
-                    <li className="nav__item"><Link href="/" onClick={hiddenMeny} className='nav__link'>الرئيسية</Link></li>
-                    <li className="nav__item"><Link href="/blog" onClick={hiddenMeny} className='nav__link'>قائمة القنوات</Link></li>
-                    <li className="nav__item"><Link href="/ar/installation" onClick={hiddenMeny} className='nav__link'>تتبيت</Link></li>
-                    <li className="nav__item"><Link href="/about"  onClick={hiddenMeny} className='nav__link'>من نحن</Link></li>
-                    <li className="nav__item"><Link href="/faq" onClick={hiddenMeny} className='nav__link'>أسئلة متكررة</Link></li>
-                    <li className="nav__item"><Link href="/contact" onClick={hiddenMeny} className='nav__link'>تواصل معنا</Link></li>
+                    <li className="nav__item"><Link href="/" onClick={()=>{hiddenMeny() ; setMenu('الرئيسية')}} className={`nav__link ${menu === 'الرئيسية' ? 'border' : ''}`}>الرئيسية</Link></li>
+                    <li className="nav__item"><Link href="/" onClick={()=>{hiddenMeny() ; setMenu('قائمة القنوات')}}className={`nav__link ${menu === 'قائمة القنوات' ? 'border' : ''}`}>قائمة القنوات</Link></li>
+                    <li className="nav__item"><Link href="/" onClick={()=>{hiddenMeny() ; setMenu('تتبيت')}}className={`nav__link ${menu === 'تتبيت' ? 'border' : ''}`}>تتبيت</Link></li>
+                    <li className="nav__item"><Link href="/"  onClick={()=>{hiddenMeny() ; setMenu('من نحن')}}className={`nav__link ${menu === 'من نحن' ? 'border' : ''}`}>من نحن</Link></li>
+                    <li className="nav__item"><Link href="/" onClick={()=>{hiddenMeny() ; setMenu('أسئلة متكررة')}}className={`nav__link ${menu === 'أسئلة متكررة' ? 'border' : ''}`}>أسئلة متكررة</Link></li>
+                    <li className="nav__item"><Link href="/contact-us" onClick={()=>{hiddenMeny() ; setMenu('تواصل معنا')}}className={`nav__link ${menu === 'تواصل معنا' ? 'border' : ''}`}>تواصل معنا </Link></li>
                     </ul>
                 </div>
                 <div className="btns__item">
