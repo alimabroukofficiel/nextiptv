@@ -5,36 +5,74 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-export default function ReviewCard({key , data}) {
+export default function ReviewCard({data}) {
     const settings = {
-        dots: true,
-        infinite: true,
-        speed: 800,
-        slidesToShow: 7,
-        slidesToScroll: 6,
-        arrows: false, 
+      dots: false,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 4,
+      slidesToScroll: 1 ,
+      autoplay: true,
+      autoplaySpeed: 3000,
+      arrows: false, 
         responsive: [
           {
             breakpoint: 1122,
             settings: {
-              slidesToShow: 4.5,
-              slidesToScroll: 4.5,
+              slidesToShow: 3.5,
+              slidesToScroll: 1,
               infinite: true,
               dots: true
+            }
+           },
+
+           {
+            breakpoint: 964,
+            settings: {
+              slidesToShow: 2.5,
+              slidesToScroll: 1,
+              infinite: true,
+              dots: false
+            }
+           },
+           {
+            breakpoint: 767,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 1,
+              infinite: true,
+              dots: false
+            }
+           },
+           {
+            breakpoint: 400,
+            settings: {
+              slidesToShow: 1.5,
+              slidesToScroll: 1,
+              infinite: true,
+              dots: false
             }
            },
       
         ]
       };
   return (
-    <div className="review__item" key={key}>
-    <Image
-      src={data.attributes?.image.data.attributes.url}
-      alt={data.attributes?.title}
-      layout="fill"
-      priority={true}
-      sizes="(max-width: 100%) 100%, (max-width: 100%)"
-    />
-      </div>
+    <div className="cards__list">
+               {
+            data.map(item =>(
+              <div className="review__item" key={item.id}>
+              <Image
+                src={item.attributes?.image.data.attributes.url}
+                alt={item.attributes?.title}
+                layout="fill"
+                priority={true}
+                sizes="(max-width: 100%) 100%, (max-width: 100%)"
+              />
+          </div>
+            ))
+          }
+
+    </div>
+
   )
 }

@@ -4,7 +4,7 @@ import React, { useState , useEffect } from 'react';
 import iconButtom from '../assets/icons/bottom.svg'
 import Link from 'next/link';
 import iconBack from '../assets/icons/back.svg'
-import england from '../../../public/assets/flags/england.svg'
+import england from '../../../public/assets/flags/qatar.svg'
 import {countries} from '../data/flags'
 export default function Header() {
     const [menu , setMenu] = useState('الرئيسية')
@@ -44,16 +44,16 @@ export default function Header() {
             <div className="right__sec">
                 <div className="nav__menu">
                     <ul className="nav__list">
-                    <li className="nav__item"><Link href="/" onClick={()=>{ setMenu('الرئيسية') ; setHeaderstate(prevState => !prevState); setHeaderstate(prevState => !prevState)}} className={`nav__link ${menu === 'الرئيسية' ? 'border' : ''}`}>الرئيسية</Link></li>
-                    <li className="nav__item"><Link href="/" onClick={()=>{ setMenu('قائمة القنوات'); setHeaderstate(prevState => !prevState)}}className={`nav__link ${menu === 'قائمة القنوات' ? 'border' : ''}`}>قائمة القنوات</Link></li>
-                    <li className="nav__item"><Link href="/" onClick={()=>{ setMenu('تتبيت'); setHeaderstate(prevState => !prevState)}}className={`nav__link ${menu === 'تتبيت' ? 'border' : ''}`}>تتبيت</Link></li>
-                    <li className="nav__item"><Link href="/"  onClick={()=>{ setMenu('من نحن'); setHeaderstate(prevState => !prevState)}}className={`nav__link ${menu === 'من نحن' ? 'border' : ''}`}>من نحن</Link></li>
-                    <li className="nav__item"><Link href="/" onClick={()=>{ setMenu('أسئلة متكررة'); setHeaderstate(prevState => !prevState)}}className={`nav__link ${menu === 'أسئلة متكررة' ? 'border' : ''}`}>أسئلة متكررة</Link></li>
-                    <li className="nav__item"><Link href="/contact-us" onClick={()=>{ setMenu('تواصل معنا'); setHeaderstate(prevState => !prevState)}}className={`nav__link ${menu === 'تواصل معنا' ? 'border' : ''}`}>تواصل معنا </Link></li>
+                    <li className="nav__item"><Link href="/" onClick={()=>{ setMenu('الرئيسية') ; setHeaderstate(false); setHeaderstate(false)}} className={`nav__link ${menu === 'الرئيسية' ? 'border' : ''}`}>الرئيسية</Link></li>
+                    <li className="nav__item"><Link href="/" onClick={()=>{ setMenu('قائمة القنوات'); setHeaderstate(false)}}className={`nav__link ${menu === 'قائمة القنوات' ? 'border' : ''}`}>قائمة القنوات</Link></li>
+                    <li className="nav__item"><Link href="/" onClick={()=>{ setMenu('تتبيت'); setHeaderstate(false)}}className={`nav__link ${menu === 'تتبيت' ? 'border' : ''}`}>تتبيت</Link></li>
+                    <li className="nav__item"><Link href="/"  onClick={()=>{ setMenu('من نحن'); setHeaderstate(false)}}className={`nav__link ${menu === 'من نحن' ? 'border' : ''}`}>من نحن</Link></li>
+                    <li className="nav__item"><Link href="/" onClick={()=>{ setMenu('أسئلة متكررة'); setHeaderstate(false)}}className={`nav__link ${menu === 'أسئلة متكررة' ? 'border' : ''}`}>أسئلة متكررة</Link></li>
+                    <li className="nav__item"><Link href="/contact-us" onClick={()=>{ setMenu('تواصل معنا'); setHeaderstate(false)}}className={`nav__link ${menu === 'تواصل معنا' ? 'border' : ''}`}>تواصل معنا </Link></li>
                     </ul>
                 </div>
                 <div className="btns__item">
-                    <Link href={"pricing"}> <button className='btn__submit'> اشترك الآن</button> </Link>
+                    <Link href={"pricing"}> <button className='btn__submit' onClick={()=>{setHeaderstate(false)}}> اشترك الآن</button> </Link>
                     <a  className={`btn__lang`} onClick={()=>{setActiveLang(prevState => !prevState)}} >
                         <Image src={lang} alt='falg' width={22} height={22}/>
                         <Image className={` icon__button ${activeLang ? '' : "active"}`} src={iconButtom} alt='icon menu' width={20} height={20} style={{opacity:".8"}} priority />                        
