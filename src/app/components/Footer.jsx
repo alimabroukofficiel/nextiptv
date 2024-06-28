@@ -7,8 +7,8 @@ export default function Footer() {
     <div className="container">
         <ul>
             <li><Link href={'/'}>الرئيسية</Link></li>
-            <li><Link href={'/cantact-us'}>اتصل بنا </Link></li>
-            <li><Link href={'/faqs'}>أسئلة متكررة</Link></li>
+            <li><Link href={'/'} >اتصل بنا </Link></li>
+            <li><Link href={'/'}>أسئلة متكررة</Link></li>
             <li><Link href={'/'}>شرحات</Link></li>
             <li><Link href={'/'}>الشروط والأحكام </Link></li>
             <li><Link href={'/'}>سياسة الخصوصية </Link></li>

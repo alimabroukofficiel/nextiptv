@@ -3,31 +3,38 @@ import Image from 'next/image'
 import React, { useState , useEffect } from 'react';
 import iconButtom from '../assets/icons/bottom.svg'
 import Link from 'next/link';
+import iconBack from '../assets/icons/back.svg'
+import england from '../../../public/assets/flags/england.svg'
+import {countries} from '../data/flags'
 export default function Header() {
-    const [isClicked, setIsClicked] = useState(false);
     const [menu , setMenu] = useState('الرئيسية')
-    const handleClick = () => {
-        
-      setIsClicked(!isClicked);   
-     };
-     const hiddenMeny = ()=>{
-        setIsClicked(!isClicked);   
-        document.body.style.overflow = "auto";
-     }
-    const [lang, setlang] = useState(false);
-    const handleLang = (e) => {
-        e.preventDefault()
-        setlang(!lang);
-    };
-    // useEffect(() => {
-    //     if (isClicked) {
-    //         document.body.style.overflow = "hidden";
-    //     } else {
-    //         document.body.style.overflow = "auto";
-    //     }
-    // }, [isClicked]);
+    const [lang , setLang] = useState(england)
+    const [activeLang , setActiveLang] = useState(true)
+    const [headerstate , setHeaderstate] = useState(false)
+    useEffect(() => {
+        const body = document.querySelector('body');
+        const header = document.querySelector('header');
+    
+        const handleOverflow = () => {
+          if (header.classList.contains('active')) {
+            body.style.overflow = 'hidden';
+          } else {
+            body.style.overflow = 'auto';
+          }
+        };
+    
+        handleOverflow(); // Set initial state on mount
+    
+        // Listen for changes in header's class
+        const observer = new MutationObserver(handleOverflow);
+        observer.observe(header, { attributes: true });
+    
+        return () => {
+          observer.disconnect();
+        };
+      }, []);
   return (
-<header className={`${isClicked ? 'active' : ''}`}>
+<header className={`${headerstate ? 'active' : ""}`} >
             <div className="left__sec">
                 <a href="" className="logo__svg">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="23" fill="#FF5C28" viewBox="0 0 21 24"><path d="M20.466 11.109c.876-4.8-2.049-9.093-6.627-10.519C5.709-1.94-.052 5.506.014 13.015c.053 6.066 1.354 10.098 1.354 10.101-.058-.18 1.536-1.02 1.72-1.114.625-.32 1.28-.582 1.944-.802 1.372-.456 2.79-.743 4.197-1.064 4.399-1.006 9.127-2.902 10.81-7.47.19-.515.33-1.036.427-1.557Z"></path></svg>
@@ -37,26 +44,76 @@ export default function Header() {
             <div className="right__sec">
                 <div className="nav__menu">
                     <ul className="nav__list">
-                    <li className="nav__item"><Link href="/" onClick={()=>{hiddenMeny() ; setMenu('الرئيسية')}} className={`nav__link ${menu === 'الرئيسية' ? 'border' : ''}`}>الرئيسية</Link></li>
-                    <li className="nav__item"><Link href="/" onClick={()=>{hiddenMeny() ; setMenu('قائمة القنوات')}}className={`nav__link ${menu === 'قائمة القنوات' ? 'border' : ''}`}>قائمة القنوات</Link></li>
-                    <li className="nav__item"><Link href="/" onClick={()=>{hiddenMeny() ; setMenu('تتبيت')}}className={`nav__link ${menu === 'تتبيت' ? 'border' : ''}`}>تتبيت</Link></li>
-                    <li className="nav__item"><Link href="/"  onClick={()=>{hiddenMeny() ; setMenu('من نحن')}}className={`nav__link ${menu === 'من نحن' ? 'border' : ''}`}>من نحن</Link></li>
-                    <li className="nav__item"><Link href="/" onClick={()=>{hiddenMeny() ; setMenu('أسئلة متكررة')}}className={`nav__link ${menu === 'أسئلة متكررة' ? 'border' : ''}`}>أسئلة متكررة</Link></li>
-                    <li className="nav__item"><Link href="/contact-us" onClick={()=>{hiddenMeny() ; setMenu('تواصل معنا')}}className={`nav__link ${menu === 'تواصل معنا' ? 'border' : ''}`}>تواصل معنا </Link></li>
+                    <li className="nav__item"><Link href="/" onClick={()=>{ setMenu('الرئيسية') ; setHeaderstate(prevState => !prevState); setHeaderstate(prevState => !prevState)}} className={`nav__link ${menu === 'الرئيسية' ? 'border' : ''}`}>الرئيسية</Link></li>
+                    <li className="nav__item"><Link href="/" onClick={()=>{ setMenu('قائمة القنوات'); setHeaderstate(prevState => !prevState)}}className={`nav__link ${menu === 'قائمة القنوات' ? 'border' : ''}`}>قائمة القنوات</Link></li>
+                    <li className="nav__item"><Link href="/" onClick={()=>{ setMenu('تتبيت'); setHeaderstate(prevState => !prevState)}}className={`nav__link ${menu === 'تتبيت' ? 'border' : ''}`}>تتبيت</Link></li>
+                    <li className="nav__item"><Link href="/"  onClick={()=>{ setMenu('من نحن'); setHeaderstate(prevState => !prevState)}}className={`nav__link ${menu === 'من نحن' ? 'border' : ''}`}>من نحن</Link></li>
+                    <li className="nav__item"><Link href="/" onClick={()=>{ setMenu('أسئلة متكررة'); setHeaderstate(prevState => !prevState)}}className={`nav__link ${menu === 'أسئلة متكررة' ? 'border' : ''}`}>أسئلة متكررة</Link></li>
+                    <li className="nav__item"><Link href="/contact-us" onClick={()=>{ setMenu('تواصل معنا'); setHeaderstate(prevState => !prevState)}}className={`nav__link ${menu === 'تواصل معنا' ? 'border' : ''}`}>تواصل معنا </Link></li>
                     </ul>
                 </div>
                 <div className="btns__item">
-                    <Link href={"pricing"}> <button className='btn__submit' onClick={hiddenMeny}> اشترك الآن</button> </Link>
-                    <a href="" className={`btn__lang ${lang ? 'active' : ''}`} onClick={handleClick}>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 512 512"><mask id="a"><circle cx="256" cy="256" r="256" fill="#fff"></circle></mask><g mask="url(#a)"><path fill="#eee" d="M167 0h178l25.9 252.3L345 512H167l-29.8-253.4z"></path><path fill="#6da544" d="M0 0h167v512H0z"></path><path fill="#d80027" d="M345 0h167v512H345z"></path></g></svg>
-                        <Image src={iconButtom} alt='icon menu' width={20} height={20} style={{opacity:".8"}} priority />                        
+                    <Link href={"pricing"}> <button className='btn__submit'> اشترك الآن</button> </Link>
+                    <a  className={`btn__lang`} onClick={()=>{setActiveLang(prevState => !prevState)}} >
+                        <Image src={lang} alt='falg' width={22} height={22}/>
+                        <Image className={` icon__button ${activeLang ? '' : "active"}`} src={iconButtom} alt='icon menu' width={20} height={20} style={{opacity:".8"}} priority />                        
                     </a>
+
+                    <div className={`selectLang__container ${activeLang ? 'active' : ""}`} >
+                        <div className="slectLang__header">
+                            <h3>اختر لغتك</h3>
+                            <i className='icon__circle' onClick={()=>{setActiveLang(prevState => !prevState)}}>
+                                <Image src={iconBack}alt='icon' width={20} height={20}/>
+                            </i>
+                        </div>
+                        <div className="slectLang__list">
+                            {
+                                countries.map(item =>(
+                                    <div key={item.id}>
+                                        <Link href={`/${item.to}`}> 
+                                        <div className="slectLang__item"  onClick={()=>{setLang(item.svg); setActiveLang(true)}}>
+                                                <Image src={item.svg} alt='' width={27} height={27}/>
+                                                <span>{item.name} </span>
+                                        </div>
+                                        </Link>  
+                                    </div>
+                               
+                                ))
+                            }
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div className={`icon__menu ${isClicked ? 'active' : ''}`} onClick={handleClick}>
+            <div className={`icon__menu `} onClick={()=>{setHeaderstate(prevState => !prevState)}} >
                     <Image src={iconButtom} alt='icon menu' width={22} height={22}  priority />
             </div>
 </header>
 
   )
 }
+
+
+
+
+// const [isClicked, setIsClicked] = useState(false);
+// const [menu , setMenu] = useState('الرئيسية')
+// const handleClick = () => {
+    
+//   setIsClicked(!isClicked);   
+//  };
+//  const hiddenMeny = ()=>{
+//     setIsClicked(!isClicked);   
+//     document.body.style.overflow = "auto";
+//  }
+// const [lang, setlang] = useState(false);
+// const handleLang = (e) => {
+//     e.preventDefault()
+//     setlang(!lang);
+// };
+// useEffect(() => {
+//     if (isClicked) {
+//         document.body.style.overflow = "hidden";
+//     } else {
+//         document.body.style.overflow = "auto";
+//     }
+// }, [isClicked]);
