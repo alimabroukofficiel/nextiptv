@@ -358,6 +358,9 @@ header .icon__menu{
   z-index: -1;
   display: none;
 }
+header.active{
+  background-color: #0f0f0f;
+}
 header.active .icon__menu{
   transform: rotate(180DEG);
 }
@@ -482,16 +485,16 @@ header.active .right__sec{
     perspective: 100PX;
     background-color: #191919;
     overflow: hidden;
+    z-index: 1;
 }
-
 
 .cards__list .card__item::before{
   content: '';position: absolute;
   width: 100%;height: 100%;
-  z-index: -1;
   background: linear-gradient(to right , #191919 , #222 , #191919);
   transform: translateX(-100%);
   animation: loadingcard 1S infinite linear;
+  z-index: -1;
 }
 
 @keyframes loadingcard {
@@ -517,21 +520,8 @@ header.active .right__sec{
   position: relative;
   z-index: 1;
 }
-/* 
-.card__channels::after{
-  content: '';position: absolute;
-  width: 300PX;
-  height: 150PX;
-  z-index: -1;
-  background: linear-gradient(to right , #191919 , #222 , #191919);
-  transform: translateX(-100%);
-  animation: loadingcard 1S infinite linear;
-} */
-@keyframes loadingcard {
-  100%{
-    transform: translateX(100%);
-  }
-}
+
+
 .card__channels img{
   border-radius: .3REM;
 }
@@ -836,7 +826,17 @@ header.active .right__sec{
   flex: none;
   background-color: var(--color-transparent);
   position: relative;cursor: pointer;
+  position: relative;
 }
+.review__item::before{
+  content: '';position: absolute;
+  width: 100%;height: 100%;
+  background: linear-gradient(to right , #191919 , #222 , #191919);
+  transform: translateX(-100%);
+  animation: loadingcard 1S infinite linear;
+  z-index: -1;
+}
+
 .custmer__reviews .rev .cards__list .review__item img{
   width: 100%;height: 100%;
   object-fit: 100%;
@@ -849,6 +849,55 @@ header.active .right__sec{
 
 
 /* end reviews section */
+
+
+.faqs__list{
+  width: 100%;height: auto;
+  max-width: 1100PX;margin: 0% auto;
+}
+
+
+.faqs__list  .faqs__item{
+  width: 100%;height: auto;
+  background-color: red;
+  margin-bottom: var(--mb-05);
+}
+.faqs__list  .faqs__item.active .question img {
+  transition: .2S linear all;
+}
+.faqs__list  .faqs__item.active .question img{
+  transform: rotate(180DEG);
+}
+.faqs__list  .faqs__item.active .answer{
+  max-height: 600PX;height: 100%;
+}
+.faqs__list  .faqs__item.active .question{
+  text-decoration: underline;
+}
+.faqs__list  .faqs__item .question{
+  width: 100%;height: 70PX;
+  display: flex;align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 0REM 1REM;
+  background-color: #212121;
+  border-bottom: 1PX SOLID #333;
+}
+.faqs__list  .faqs__item .question:hover{
+  text-decoration: underline;
+}
+
+.faqs__list  .faqs__item .answer{
+  width: 100%;height: 0;
+  padding: 0REM 1REM;
+  overflow: hidden;
+  background-color: #232323;
+}
+.faqs__list  .faqs__item .answer p{
+  width: 100%;padding: 1REM 0REM;
+  line-height: 1.7;
+}
+
 
 
 .hero__container{

@@ -43,7 +43,11 @@ export default  async function MoviesCards() {
       {
         movies.map((item , index)=>(
           <div className="card__item" key={index}>
-            <Image src={item.url} alt="ddd" fill/>
+            <Image src={item.url} alt="ddd" fill   
+             sizes="(max-width: 600px) 100vw, 
+             (max-width: 1200px) 50vw, 
+             33vw"
+            />
           </div>
         ))
       }

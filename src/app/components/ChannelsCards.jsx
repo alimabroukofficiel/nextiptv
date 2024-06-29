@@ -48,7 +48,7 @@ export default  async function MoviesCards() {
       )}
     </div> */}
     <div className="cards__list">
-      <div className="card__channels" style={{backgroundColor:"#fff"}}>
+      <div className="card__channels" style={{backgroundColor:"#FFF"}}>
         <Image  src={netflix} alt="icon" width={120} height={120}/>
       </div>
       <div className="card__channels" style={{backgroundColor:"#fff"}}>
