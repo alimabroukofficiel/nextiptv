@@ -26,7 +26,7 @@ export default  async function MoviesCards() {
         <div className="text__content">
             <h2>القنوات الدولية            </h2>
         </div>
-      <div className="cards__list">
+      {/* <div className="cards__list">
       {data.length === 0 ? (
         Array.from({ length: 7 }).map((_, i) => (
           <div className="card__channels" key={i}> </div>
@@ -46,8 +46,8 @@ export default  async function MoviesCards() {
           </div>
         ))
       )}
-    </div>
-    {/* <div className="cards__list">
+    </div> */}
+    <div className="cards__list">
       <div className="card__channels" style={{backgroundColor:"#fff"}}>
         <Image  src={netflix} alt="icon" width={120} height={120}/>
       </div>
@@ -69,7 +69,7 @@ export default  async function MoviesCards() {
       <div className="card__channels" style={{backgroundColor:"#ba0001"}}>
         <Image  src={bbc} alt="icon" width={120} height={120}/>
       </div>
-    </div> */}
+    </div>
     </section>
   )
 }

@@ -538,7 +538,7 @@ header.active .right__sec{
 @media screen and (max-width: 767px) {
   .cards__list .card__channels {
       width: 230PX;
-      height: 110PX;
+      height: 120PX;
   }
 }
 @media screen and (max-width: 767px) {
