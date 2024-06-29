@@ -1,8 +1,8 @@
 import Image from "next/image"
 import Link from "next/link"
 import axios from "axios"
-
-
+import {sps} from '../data/sps'
+ 
 export default  async function MoviesCards() {
     let data = []
     try {
@@ -20,7 +20,7 @@ export default  async function MoviesCards() {
             <h2>مسابقات رياضية            </h2>
         </div>
         <div className="cards__list">
-      {data.length === 0 ? (
+      {/* {data.length === 0 ? (
         Array.from({ length: 7 }).map((_, i) => (
           <div className="card__item" key={i}> </div>
         ))
@@ -38,7 +38,15 @@ export default  async function MoviesCards() {
               </div>
           </div>
         ))
-      )}
+      )} */}
+
+{
+        sps.map((item , index)=>(
+          <div className="card__item" key={index}>
+            <Image src={item.url} alt="ddd" fill/>
+          </div>
+        ))
+      }
     </div>
     </section>
   )

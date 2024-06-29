@@ -58,16 +58,13 @@ export default  async function MoviesCards() {
         <Image  src={ufc} alt="icon" width={120} height={120}/>
       </div>
       <div className="card__channels" style={{backgroundColor:"#fff"}}>
-        <Image  src={nationalgeographic} alt="icon" width={170} height={170}/>
+        <Image  src={netflix} alt="icon" width={120} height={120}/>
       </div>
       <div className="card__channels" style={{backgroundColor:"#fff"}}>
-        <Image  src={canal} alt="icon" width={130} height={130}/>
+        <Image  src={espn} alt="icon" width={120} height={120}/>
       </div>
       <div className="card__channels" style={{backgroundColor:"#fff"}}>
-        <Image  src={hbo} alt="icon" width={100} height={100}/>
-      </div>
-      <div className="card__channels" style={{backgroundColor:"#ba0001"}}>
-        <Image  src={bbc} alt="icon" width={120} height={120}/>
+        <Image  src={ufc} alt="icon" width={120} height={120}/>
       </div>
     </div>
     </section>
