@@ -517,7 +517,7 @@ header.active .right__sec{
   position: relative;
   z-index: 1;
 }
-
+/* 
 .card__channels::after{
   content: '';position: absolute;
   width: 300PX;
@@ -526,7 +526,7 @@ header.active .right__sec{
   background: linear-gradient(to right , #191919 , #222 , #191919);
   transform: translateX(-100%);
   animation: loadingcard 1S infinite linear;
-}
+} */
 @keyframes loadingcard {
   100%{
     transform: translateX(100%);
