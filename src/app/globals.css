@@ -922,14 +922,10 @@ header.active .right__sec{
   width: 100%;height: auto;
   position: relative;
 }
-.hero__container .text__center h1{
-  font-size: var(--fs-big);
-  font-size: 3REM;
-  margin-bottom: var(--mb-20);
-}
+
 .cardHero__list{
-  width: 100%;height: 430PX;
-  background-color: red;
+  width: 100%;height: auto;
+  position: relative;
 }
 
 
@@ -1002,3 +998,19 @@ footer .container ul{
 
 
 
+
+.match__item{
+  width: 390PX;height: 220PX;
+  flex: none;position: relative;
+  overflow: hidden;
+  background-color: #191919;
+  z-index: 1;
+}
+.match__item::before{
+  content: '';position: absolute;
+  width: 100%;height: 100%;
+  background: linear-gradient(to right , #191919 , #222 , #191919);
+  transform: translateX(-100%);
+  animation: loadingcard 1S infinite linear;
+  z-index: -1;
+}
