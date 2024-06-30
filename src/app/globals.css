@@ -243,7 +243,17 @@ header .right__sec .btns__item .btn__submit{
     font-weight: 500;
 
 }
-header .right__sec .btns__item .btn__submit:hover{
+.btn__submit{
+  background-color: #FFF;
+  padding: 8PX 30PX;
+  color: #111;
+  border-radius: 20PX;
+  position: relative;
+  transition: .2S linear;
+  font-weight: 500;
+  cursor: pointer;
+}
+.btn__submit:hover{
   opacity: .8;
 }
 
@@ -909,13 +919,18 @@ header.active .right__sec{
 
 
 .hero__container{
-  width: 100%;height: 200PX;
+  width: 100%;height: auto;
   position: relative;
+}
+.hero__container .text__center h1{
+  font-size: var(--fs-big);
+  font-size: 3REM;
+  margin-bottom: var(--mb-20);
+}
+.cardHero__list{
+  width: 100%;height: 430PX;
   background-color: red;
 }
-
-
-
 
 
 
@@ -984,3 +999,5 @@ footer .container ul{
   height: auto;
   margin-left:5Px;
 }
+
+

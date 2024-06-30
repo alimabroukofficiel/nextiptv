@@ -6,7 +6,6 @@ import ChannelsCards from './components/ChannelsCards'
 import PricingSrction from "./components/PricingSection"
 import WhyUseSection from "./components/WhyUseSection"
 import ReviewsSection from "./components/ReviewsSection"
-import FaqsSection from './components/FaqsSection'
 export default function page() {
   return (
     <>
@@ -18,7 +17,6 @@ export default function page() {
     <PricingSrction></PricingSrction>
     <WhyUseSection></WhyUseSection>
     <ReviewsSection></ReviewsSection>
-    <FaqsSection></FaqsSection>
     </>
   )
 }
