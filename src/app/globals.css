@@ -689,7 +689,7 @@ header.active .right__sec{
   width: 100%;min-height: auto;
   display: grid;place-content: CENTER;
   background-color: #0f0f0f;
-  min-height: 90VH;
+  /* min-height: 100VH; */
 }
 @media screen and (max-width:767PX) {
   .why__container{
@@ -999,5 +999,6 @@ footer .container ul{
   height: auto;
   margin-left:5Px;
 }
+
 
 
