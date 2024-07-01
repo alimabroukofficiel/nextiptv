@@ -1,5 +1,5 @@
 // next.config.mjs
-import nextPWA from 'next-pwa';
+// import nextPWA from 'next-pwa';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -8,8 +8,8 @@ const nextConfig = {
     },
 };
 
-const withPWA = nextPWA({
-    dest: 'public',
-});
+// const withPWA = nextPWA({
+//     dest: 'public',
+// });
 
-export default withPWA(nextConfig);
+export default nextConfig;
